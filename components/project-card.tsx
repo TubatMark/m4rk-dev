@@ -24,6 +24,7 @@ interface Project {
   description: string
   tech: string[]
   image?: string
+  imageUrl?: string // Added imageUrl for signed URLs
   url?: string
   repo?: string
   featured?: boolean
@@ -45,9 +46,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     >
       <Card className="group h-full overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
         <div className="relative aspect-video overflow-hidden bg-muted">
-          {project.image ? (
+          {(project.imageUrl || project.image) ? (
             <motion.img
-              src={project.image}
+              src={project.imageUrl || project.image}
               alt={project.title}
               className="w-full h-full object-cover"
               whileHover={{ scale: 1.05 }}

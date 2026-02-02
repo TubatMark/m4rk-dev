@@ -35,6 +35,7 @@ import {
   Loader2,
   X,
 } from "lucide-react"
+import { ImageUpload } from "@/components/admin/image-upload"
 
 interface ProjectFormData {
   title: string
@@ -71,11 +72,13 @@ export default function ProjectsPage() {
   const [formData, setFormData] = React.useState<ProjectFormData>(emptyForm)
   const [techInput, setTechInput] = React.useState("")
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [previewImage, setPreviewImage] = React.useState<string>("")
 
   const handleCreate = () => {
     setEditingId(null)
     setFormData({ ...emptyForm, order: (projects?.length ?? 0) + 1 })
     setTechInput("")
+    setPreviewImage("")
     setIsDialogOpen(true)
   }
 
@@ -92,6 +95,7 @@ export default function ProjectsPage() {
       order: project.order ?? 0,
     })
     setTechInput("")
+    setPreviewImage(project.imageUrl ?? project.image ?? "")
     setIsDialogOpen(true)
   }
 
@@ -190,10 +194,10 @@ export default function ProjectsPage() {
                       <GripVertical className="h-5 w-5" />
                     </div>
 
-                    {project.image && (
+                    {(project.imageUrl || project.image) && (
                       <div className="w-20 h-14 rounded overflow-hidden bg-muted shrink-0">
                         <img
-                          src={project.image}
+                          src={project.imageUrl || project.image}
                           alt={project.title}
                           className="w-full h-full object-cover"
                         />
@@ -345,14 +349,13 @@ export default function ProjectsPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="image">Image URL</Label>
-              <Input
-                id="image"
+              <Label htmlFor="image">Image</Label>
+              <ImageUpload
                 value={formData.image}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, image: e.target.value }))
+                onChange={(value) =>
+                  setFormData((prev) => ({ ...prev, image: value }))
                 }
-                placeholder="https://example.com/image.jpg"
+                initialPreview={previewImage}
               />
             </div>
 

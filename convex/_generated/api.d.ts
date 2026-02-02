@@ -12,6 +12,7 @@ import type * as aboutSection from "../aboutSection.js";
 import type * as adminAuth from "../adminAuth.js";
 import type * as contactSection from "../contactSection.js";
 import type * as experience from "../experience.js";
+import type * as files from "../files.js";
 import type * as heroSection from "../heroSection.js";
 import type * as messages from "../messages.js";
 import type * as projects from "../projects.js";
@@ -33,6 +34,7 @@ declare const fullApi: ApiFromModules<{
   adminAuth: typeof adminAuth;
   contactSection: typeof contactSection;
   experience: typeof experience;
+  files: typeof files;
   heroSection: typeof heroSection;
   messages: typeof messages;
   projects: typeof projects;

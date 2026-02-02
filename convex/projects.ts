@@ -20,7 +20,18 @@ export const getAll = query({
       .query("projects")
       .order("desc")
       .collect()
-    return projects.sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    
+    const projectsWithUrls = await Promise.all(
+      projects.map(async (project) => {
+        let imageUrl = project.image
+        if (project.image && !project.image.startsWith("http")) {
+          imageUrl = await ctx.storage.getUrl(project.image) ?? undefined
+        }
+        return { ...project, imageUrl }
+      })
+    )
+    
+    return projectsWithUrls.sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
   },
 })
 
@@ -31,14 +42,33 @@ export const getFeatured = query({
       .query("projects")
       .withIndex("by_featured", (q) => q.eq("featured", true))
       .collect()
-    return projects.sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+
+    const projectsWithUrls = await Promise.all(
+      projects.map(async (project) => {
+        let imageUrl = project.image
+        if (project.image && !project.image.startsWith("http")) {
+          imageUrl = await ctx.storage.getUrl(project.image) ?? undefined
+        }
+        return { ...project, imageUrl }
+      })
+    )
+
+    return projectsWithUrls.sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
   },
 })
 
 export const getById = query({
   args: { id: v.id("projects") },
   handler: async (ctx, args) => {
-    return await ctx.db.get(args.id)
+    const project = await ctx.db.get(args.id)
+    if (!project) return null
+
+    let imageUrl = project.image
+    if (project.image && !project.image.startsWith("http")) {
+      imageUrl = await ctx.storage.getUrl(project.image) ?? undefined
+    }
+    
+    return { ...project, imageUrl }
   },
 })
 

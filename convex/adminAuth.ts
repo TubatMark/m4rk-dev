@@ -39,11 +39,15 @@ export const login = mutation({
       .first()
 
     if (!user) {
+      console.log(`Login failed: User not found for email ${args.email}`);
       throw new Error("Invalid credentials")
     }
 
     const passwordHash = simpleHash(args.password)
     if (user.passwordHash !== passwordHash) {
+      console.log(`Login failed: Password mismatch for user ${args.email}`);
+      console.log(`Stored hash: ${user.passwordHash}`);
+      console.log(`Computed hash: ${passwordHash}`);
       throw new Error("Invalid credentials")
     }
 
