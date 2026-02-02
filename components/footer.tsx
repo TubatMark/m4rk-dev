@@ -30,6 +30,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const footerLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ]
@@ -53,13 +54,13 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-4">
             <a
               href="#home"
-              className="text-xl font-bold tracking-tight"
+              className="text-2xl font-bold tracking-tighter"
               onClick={(e) => {
                 e.preventDefault()
                 handleNavClick("#home")
               }}
             >
-              <span className="gradient-text">{siteSettings?.logoText ?? "Portfolio"}</span>
+              Mark<span className="text-primary">.</span>
             </a>
             <p className="text-sm text-muted-foreground text-center md:text-left max-w-xs">
               {siteSettings?.footerTagline ?? "Building beautiful, performant web experiences one project at a time."}

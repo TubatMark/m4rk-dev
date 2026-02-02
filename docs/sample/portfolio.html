@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mark Anthony Tubat - Full Stack Developer</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1", // Indigo 500 - Vivid for both modes
+              "primary-dark": "#4f46e5",
+              "background-light": "#ffffff",
+              "background-dark": "#0f172a", // Slate 900
+              "surface-light": "#f8fafc",
+              "surface-dark": "#1e293b",
+            },
+            fontFamily: {
+              display: ["'Space Grotesk'", "sans-serif"],
+              body: ["'Inter'", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              '2xl': '1rem',
+              '3xl': '1.5rem',
+            },
+            backgroundImage: {
+              'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            }
+          },
+        },
+      };
+    </script>
+<style>::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6366f1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-body transition-colors duration-300 selection:bg-primary selection:text-white">
+<nav class="fixed top-0 w-full z-50 transition-all duration-300 glass-panel border-b border-slate-200/50 dark:border-slate-800/50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex-shrink-0 flex items-center">
+<a class="font-display font-bold text-2xl tracking-tighter text-slate-900 dark:text-white group" href="#">
+                        Mark<span class="text-primary text-3xl leading-none">.</span>
+</a>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#home">Home</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#about">About</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#experience">Experience</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#projects">Projects</a>
+<a class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary transition-colors" href="#contact">Contact</a>
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-round text-xl dark:hidden">light_mode</span>
+<span class="material-icons-round text-xl hidden dark:block">dark_mode</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden" id="home">
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-[500px] h-[500px] bg-primary/20 dark:bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-purple-500/20 dark:bg-purple-900/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+<div class="max-w-2xl">
+<div class="inline-flex items-center space-x-2 bg-slate-100 dark:bg-slate-800/50 rounded-full px-3 py-1 mb-6 border border-slate-200 dark:border-slate-700">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300">Available for work</span>
+</div>
+<h1 class="font-display text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.1] mb-6">
+                        Hi, I'm Mark Anthony Tubat.<br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-pink-500 dark:via-purple-400 dark:to-pink-400">
+                            Crafting the Future
+                        </span>
+                        of Web Experiences.
+                    </h1>
+<p class="text-lg lg:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed max-w-lg">
+                        A passionate full-stack developer turning complex problems into elegant, performant, and immersive digital solutions.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-flex justify-center items-center px-8 py-4 text-base font-semibold text-white transition-all duration-200 bg-primary rounded-full hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-slate-900" href="#projects">
+                            View My Work
+                        </a>
+<a class="inline-flex justify-center items-center px-8 py-4 text-base font-semibold text-slate-700 dark:text-white transition-all duration-200 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-200 dark:focus:ring-slate-700" href="#contact">
+                            Get In Touch
+                        </a>
+</div>
+</div>
+<div class="relative lg:h-[600px] flex items-center justify-center">
+<div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 dark:shadow-black/50 border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 group">
+<img alt="Abstract 3D digital knot visualization" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 dark:opacity-80 mix-blend-multiply dark:mix-blend-normal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXCLoGJDBy5asfaxkyG3cKw0ky_8c_ZDa3YX5N51FF2ZV-y1iawayBUcb_UzNrGpZE8AJ88vCx0BvwjY9f300F91vkGtR2ZCp7q0T86VMnBeVLOc2dUKazpOTICgiSZ4lHt8TzMdGS8s8XiRu9C30QTXWgNSonHnpoBsKV-Cgc8BXZjm7q0q2oXGyY0xyGWCayBl2e6jcrv20or6Gt9SgVRjRXCvZRSYfYSMwxGEiXC5rWuCs7WCT8SF0T0G5OhDgpX6NkDYlc3ebt"/>
+<div class="absolute inset-0 bg-gradient-to-tr from-slate-200/50 to-transparent dark:from-slate-900/80 dark:to-transparent"></div>
+<div class="absolute top-10 right-10 p-4 glass-panel rounded-2xl shadow-lg transform rotate-6 animate-[bounce_3s_infinite]">
+<span class="material-icons-round text-4xl text-[#61DAFB]">code</span>
+</div>
+<div class="absolute bottom-20 left-10 p-4 glass-panel rounded-2xl shadow-lg transform -rotate-3 animate-[bounce_4s_infinite]">
+<span class="material-icons-round text-4xl text-emerald-500">data_object</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-12 border-y border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<p class="text-center text-sm font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-8">Powering Next-Gen Applications With</p>
+<div class="flex flex-wrap justify-center gap-8 opacity-80">
+<div class="flex items-center space-x-2 px-6 py-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300 group cursor-default">
+<span class="material-icons-round text-slate-600 dark:text-slate-300 group-hover:text-[#61DAFB] transition-colors">code</span>
+<span class="font-display font-medium text-slate-800 dark:text-slate-200">React.js</span>
+</div>
+<div class="flex items-center space-x-2 px-6 py-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300 group cursor-default">
+<span class="material-icons-round text-slate-600 dark:text-slate-300 group-hover:text-white group-hover:bg-black group-hover:rounded-full transition-colors text-sm p-0.5">javascript</span>
+<span class="font-display font-medium text-slate-800 dark:text-slate-200">Next.js</span>
+</div>
+<div class="flex items-center space-x-2 px-6 py-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300 group cursor-default">
+<span class="material-icons-round text-slate-600 dark:text-slate-300 group-hover:text-blue-500 transition-colors">storage</span>
+<span class="font-display font-medium text-slate-800 dark:text-slate-200">PostgreSQL</span>
+</div>
+<div class="flex items-center space-x-2 px-6 py-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300 group cursor-default">
+<span class="material-icons-round text-slate-600 dark:text-slate-300 group-hover:text-teal-400 transition-colors">brush</span>
+<span class="font-display font-medium text-slate-800 dark:text-slate-200">Tailwind</span>
+</div>
+<div class="flex items-center space-x-2 px-6 py-3 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-300 group cursor-default">
+<span class="material-icons-round text-slate-600 dark:text-slate-300 group-hover:text-yellow-500 transition-colors">terminal</span>
+<span class="font-display font-medium text-slate-800 dark:text-slate-200">Python</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 relative" id="about">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">About Me</h2>
+<p class="text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+                I'm a full-stack developer with over 2 years of experience building web applications. I thrive at the intersection of <span class="text-primary font-semibold">design and engineering</span>, creating products that not only work flawlessly but look stunning. I love creating products that make a difference and learning new technologies along the way.
+            </p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+<div class="text-center">
+<span class="block text-4xl font-bold text-slate-900 dark:text-white mb-2">2+</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide">Years Exp</span>
+</div>
+<div class="text-center">
+<span class="block text-4xl font-bold text-slate-900 dark:text-white mb-2">15+</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide">Projects</span>
+</div>
+<div class="text-center">
+<span class="block text-4xl font-bold text-slate-900 dark:text-white mb-2">100%</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide">Commitment</span>
+</div>
+<div class="text-center">
+<span class="block text-4xl font-bold text-slate-900 dark:text-white mb-2">∞</span>
+<span class="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-wide">Learning</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 bg-slate-50 dark:bg-slate-900/30" id="experience">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="font-display text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6">Experience &amp; Education</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg">My professional journey and academic background.</p>
+</div>
+<div class="space-y-8">
+<div class="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-300 shadow-lg shadow-slate-200/50 dark:shadow-none">
+<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+<div>
+<h3 class="text-xl font-display font-bold text-slate-900 dark:text-white">Project Technical Assistant II</h3>
+<p class="text-primary font-medium text-lg mt-1">WESMAARRDEC</p>
+</div>
+<span class="px-4 py-1.5 bg-slate-100 dark:bg-slate-700/50 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 whitespace-nowrap">Full Time</span>
+</div>
+<div class="mt-6">
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Spearheaded the development and maintenance of the <span class="font-medium text-slate-900 dark:text-white">Regional Knowledge Management System</span>. Focused on enhancing data accessibility and streamlining information sharing processes for regional agricultural research and resources.
+                    </p>
+</div>
+</div>
+<div class="group relative bg-white dark:bg-slate-800 rounded-3xl p-8 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-300 shadow-lg shadow-slate-200/50 dark:shadow-none">
+<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+<div>
+<h3 class="text-xl font-display font-bold text-slate-900 dark:text-white">Master of Information Technology</h3>
+<p class="text-primary font-medium text-lg mt-1">Graduate School</p>
+</div>
+<span class="px-4 py-1.5 bg-slate-100 dark:bg-slate-700/50 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 whitespace-nowrap">Education</span>
+</div>
+<div class="mt-6">
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                        Advanced studies focusing on software engineering, database management, and emerging technologies in the IT sector.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 relative overflow-hidden" id="projects">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-display text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">Featured Projects</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg">A selection of my recent work. Each project represents a unique challenge and showcases different aspects of my skills.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+<article class="group relative rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-800 transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-[400px] overflow-hidden">
+<img alt="Dashboard interface screenshot" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx3R7v49Cy8TuGhIlIITRx3HpUX7soJsjEaFYG0V3uSCb0w0JMVW0rczwaK5Ihn0LCu0KIcMzfA_Zon2LKT-zrM24Af0S6akFd7uAaNkmqNowCzzcUQylsX93CgShp8np7bTiyN0eFGXDl2Y9uxco6W36yFf22_M3QR69VyT8tlzPfmG9tbRdoFojfBSjQKSQEgpLD-6w8-G2G6LPcA90_pqxRnIth1rvTI7E_1bmFs2vr1blnuqrl_eWc1Fctf-S7tQWS5ZkFhqdf"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 dark:opacity-90"></div>
+<span class="absolute top-6 right-6 px-4 py-1.5 bg-black/50 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider rounded-full border border-white/10">Featured</span>
+<div class="absolute bottom-0 left-0 right-0 p-8">
+<h3 class="text-2xl font-display font-bold text-white mb-2">Financial Management System</h3>
+<p class="text-slate-300 mb-6 line-clamp-2">A comprehensive financial monitoring platform for tracking budget allocations across consortiums. Built with security and scalability in mind.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Next.js</span>
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">TypeScript</span>
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Convex</span>
+</div>
+<div class="flex gap-4 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+<a class="flex items-center px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium transition-colors" href="#">
+                                    View Project
+                                </a>
+<a class="flex items-center px-6 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-lg text-sm font-medium transition-colors border border-white/10" href="#">
+                                    Code
+                                </a>
+</div>
+</div>
+</div>
+</article>
+<article class="group relative rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-800 transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-[400px] overflow-hidden">
+<img alt="Minimalist finance app interface" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMgbELAz9oFPxakNxcI4gZKQt8VEQbBFmH0qHQsY4JNDMZcW41NwGLS4rSoLqzdhgyRe-iFg4R-ik0HG33Dyr0G5rwyIDY9nsP9mTYhdNmPFXsq29tfKZIUKWRRu-fm-0H5Y7B6_Ist4v0mrJ_asha4JXPxYpe9iEg1G8nLyZrRktu8rHc-3flOa-NoqvJ9Y6cYG5sctgTmJ2QYk-P6Fozcr0bVhGMDmBURDKomvp6UChLLfVHbuxn8-wH2cWMvpP9d22Dw9MKmQYn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 dark:opacity-90"></div>
+<span class="absolute top-6 right-6 px-4 py-1.5 bg-emerald-500/80 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider rounded-full border border-white/10">New</span>
+<div class="absolute bottom-0 left-0 right-0 p-8">
+<h3 class="text-2xl font-display font-bold text-white mb-2">PocketPlan</h3>
+<p class="text-slate-300 mb-6 line-clamp-2">A minimalist personal finance tracker designed for calm and clarity. Features real-time expense categorization and budget visualization.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Next.js</span>
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Convex</span>
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Tailwind</span>
+</div>
+<div class="flex gap-4 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+<a class="flex items-center px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium transition-colors" href="#">
+                                    View Project
+                                </a>
+<a class="flex items-center px-6 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-lg text-sm font-medium transition-colors border border-white/10" href="#">
+                                    Code
+                                </a>
+</div>
+</div>
+</div>
+</article>
+<article class="group relative rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-800 transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-[400px] overflow-hidden">
+<img alt="Data analytics dashboard" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoVOcjpRPnAXIf5etgitL2f7LXLd19A2ORVf4eNTfJ7aZNvb2Yw7KB0ROV-0-UKLSYkQSa51oF9vNB4WeJtL6Radmp5n0BB3u_Nmghmc7B0QrcPxHK7y-MCXvKaDOLxV2dKYT_UssgFnuSD9TnBa2N8-4IdDRvWpnmIDd2vWVnGm4XJmrLZHMr1xkgmUXFaunyqQhZpYku6ivbYf8uDKovVBCj5lTC7LhgOiucYMz27Ur4smD4a8-B7bH-Nlzw5kdFxggkY0QW-vqT"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 dark:opacity-90"></div>
+<span class="absolute top-6 right-6 px-4 py-1.5 bg-black/50 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider rounded-full border border-white/10">Backend</span>
+<div class="absolute bottom-0 left-0 right-0 p-8">
+<h3 class="text-2xl font-display font-bold text-white mb-2">Central CMI</h3>
+<p class="text-slate-300 mb-6 line-clamp-2">A PHP-based system for managing data related to coordinators and institutional clusters.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Vanilla PHP</span>
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">MySQL</span>
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Sass</span>
+</div>
+<div class="flex gap-4 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+<a class="flex items-center px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium transition-colors" href="#">
+                                    View Project
+                                </a>
+<a class="flex items-center px-6 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-lg text-sm font-medium transition-colors border border-white/10" href="#">
+                                    Code
+                                </a>
+</div>
+</div>
+</div>
+</article>
+<article class="group relative rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none bg-white dark:bg-slate-800 transition-all duration-500 hover:-translate-y-2">
+<div class="relative h-[400px] overflow-hidden">
+<img alt="Code editor screen" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6lAAj2rkjESuBzslwg7c8942q1MxZ3M6Su0uM94sCRLlBctq5TsHbsuM61y0rIhjxwr14FnWdXCmfV6Jz5QI0WF7aFqiu1OiqmcQaygBVE1-sHX0gn7_73kQMzQtuEwSXFNDD772lPyvhLhcMaS0Wbj18Bzs8INgt_t1nxEmaAdR5eI2cacL6Gihb93pbX7CzTAckAVDvRw7g8gPs2cResjbAiWYW_JBilv-RyH_8IRkMOfqzB9yotrV_8DnlmV-seO0QtB5Xd4F1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent opacity-80 dark:opacity-90"></div>
+<span class="absolute top-6 right-6 px-4 py-1.5 bg-black/50 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider rounded-full border border-white/10">Full Stack</span>
+<div class="absolute bottom-0 left-0 right-0 p-8">
+<h3 class="text-2xl font-display font-bold text-white mb-2">Knowledge Hub</h3>
+<p class="text-slate-300 mb-6 line-clamp-2">A centralized platform for managing regional agricultural, aquatic, and natural resources data for Western Mindanao.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Django</span>
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">Python</span>
+<span class="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs text-white border border-white/10">HTMX</span>
+</div>
+<div class="flex gap-4 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+<a class="flex items-center px-6 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg text-sm font-medium transition-colors" href="#">
+                                    View Project
+                                </a>
+<a class="flex items-center px-6 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-lg text-sm font-medium transition-colors border border-white/10" href="#">
+                                    Code
+                                </a>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<section class="py-24 relative overflow-hidden" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="text-center mb-16">
+<h2 class="font-display text-4xl font-bold text-slate-900 dark:text-white mb-4">Get In Touch</h2>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Have a project in mind or want to collaborate? I'd love to hear from you. Let's create something amazing together.</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-12 lg:gap-20">
+<div class="space-y-8">
+<div class="flex items-start space-x-6 p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors">
+<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons-round">email</span>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-1">Email</h3>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary transition-colors" href="mailto:tubat.mark09@gmail.com">tubat.mark09@gmail.com</a>
+</div>
+</div>
+<div class="flex items-start space-x-6 p-6 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors">
+<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-icons-round">location_on</span>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-1">Location</h3>
+<p class="text-slate-600 dark:text-slate-300">Zamboanga City, Philippines</p>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-slate-100 dark:bg-slate-800">
+<h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Quick Response</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">I typically respond within 24 hours. For urgent matters, don't hesitate to reach out directly via email.</p>
+</div>
+</div>
+<form class="space-y-6 bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="name">Name</label>
+<input class="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="name" placeholder="Your name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="email">Email</label>
+<input class="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="email" placeholder="your@email.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700 dark:text-slate-300" for="message">Message</label>
+<textarea class="w-full px-4 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none resize-none" id="message" placeholder="Tell me about your project..." rows="4"></textarea>
+</div>
+<button class="w-full py-4 px-6 bg-slate-900 dark:bg-primary text-white font-semibold rounded-lg hover:bg-slate-800 dark:hover:bg-primary-dark transition-all duration-200 flex items-center justify-center space-x-2" type="button">
+<span class="material-icons-round text-sm">send</span>
+<span>Send Message</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+<footer class="py-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-center md:text-left">
+<h3 class="text-xl font-bold font-display text-slate-900 dark:text-white mb-2">Mark Anthony Tubat</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 max-w-xs">Building beautiful, performant web experiences one project at a time.</p>
+</div>
+<div class="flex space-x-6">
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#home">Home</a>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#about">About</a>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#projects">Projects</a>
+<a class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#contact">Contact</a>
+</div>
+<div class="flex space-x-4">
+<a class="p-2 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors" href="#">
+<img alt="Github" class="w-5 h-5 dark:hidden" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5AOhL8aBGzqpBGQ2UzKAGDDuHCMXZMbbnMxX3lOAwX11Fge5fE8rUaa1m07CsfxAftjjMDrm216joPqXOzuRDx-Zj6srYxnBJP9SEE6HIK7qWn0Vs3HSu1_aLu9BBW5jPPwjcOHCPWbqmiCHAF8knh7iVkZ5xXUJA-KaOS1EyR4yPC_FTQ9hlgE6JeJHia81hAb6ouDRckby5nfHLq1x1jmVWLku7lna3HVmIbbRZWCFAmCKVdhpIXmLkpjxUR-nYtgIVvPkuav_E"/>
+<img alt="Github" class="w-5 h-5 hidden dark:block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn_MK7W9mPZJOAWw3GW70w-afIVUyQD_spjZBS_m-bVqTLLVpHtLU1pRXrR7zGrQNw7SwANuhsQlkNaUvJShxbdU73CjfpBv94Nz9nugi2PrtdzJa4N31gQ6eg_0Gdf1ABSPbeA6ynhYz8tR18Dg_18A6-7y25cRjI87KjFbBjpPyNxuMTuHOGgZ4Owrx6gMot3H7tQpl32LNMQt5klFGD2lawt7tjZHvbqdqhkrha1Vti3C-_acmIYZwp_iZ-IklLf6wea-qUZgqX"/>
+</a>
+<a class="p-2 text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors" href="#">
+<img alt="LinkedIn" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5tfRxUsKQkIPAwx8Fu1n7P-lImlH4EM2XQEnyWem6vgDBdl5oLy55jrv9OBx_wEseQ2H6IokrkRBldRWKHO7DgTxSqtQuUrTdpYgJl5EDFIVz3sbRuIqk5XNieR3APODNUMPjMJXGTtlU8P2plBJK4E3uvH3gI_E0Pz1frapGfTV1q73LlxcMAOE94iGXDNpDKQIxW9y6wiJl2814gQTL5myPR5m5oXvsLlDaXEwAeCSqbqXw36UrB_P7QEs0R9mfHbWsF8CAupng"/>
+</a>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-500">
+<p>© 2024 Mark Anthony Tubat. All rights reserved.</p>
+<p class="flex items-center gap-1">
+                    Made with <span class="text-red-500 material-icons-round text-xs">favorite</span> using Next.js &amp; Convex
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

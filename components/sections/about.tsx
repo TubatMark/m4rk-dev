@@ -10,111 +10,147 @@
 "use client"
 
 import * as React from "react"
-import { motion } from "framer-motion"
 import { useQuery } from "convex/react"
 import { api } from "@/convex/_generated/api"
-import { Code2, Palette, Rocket, Users, Wrench, Zap, Globe, Shield, Database, Cpu, Cloud, Terminal } from "lucide-react"
+import { Zap, Code, Layers, Database as Storage, Palette, Terminal, Cpu, Database, Layout, Globe, Rocket, Users, Shield, Cpu as IconCpu } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
-import { staggerContainer, fadeInUp } from "@/lib/animations"
+import { motion } from "framer-motion"
 
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Code2,
-  Palette,
-  Rocket,
-  Users,
-  Wrench,
-  Zap,
-  Globe,
-  Shield,
-  Database,
-  Cpu,
-  Cloud,
-  Terminal,
+const iconMap: Record<string, any> = {
+  code: Code,
+  layers: Layers,
+  storage: Storage,
+  palette: Palette,
+  terminal: Terminal,
+  cpu: Cpu,
+  database: Database,
+  layout: Layout,
+  globe: Globe,
+  rocket: Rocket,
+  users: Users,
+  shield: Shield,
+  Code2: Code,
+  Palette: Palette,
+  Rocket: Rocket,
+  Users: Users,
 }
 
 export function About() {
   const aboutData = useQuery(api.aboutSection.get)
-  const skillsData = useQuery(api.skills.getAll)
-  const technologiesData = useQuery(api.technologies.getAll)
   const statsData = useQuery(api.stats.getAll)
+  const technologiesData = useQuery(api.technologies.getAll)
+  const skillsData = useQuery(api.skills.getAll)
+  
+  // Loading state prevents layout shifts
+  if (aboutData === undefined || technologiesData === undefined || skillsData === undefined) {
+    return (
+      <section id="about" className="py-24 md:py-32 relative overflow-hidden">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="animate-pulse space-y-8">
+               <div className="h-12 w-48 bg-muted rounded-md mx-auto md:mx-0"></div>
+               <div className="h-32 w-full max-w-2xl bg-muted rounded-md"></div>
+            </div>
+         </div>
+      </section>
+    )
+  }
+
+  // Double the data for infinite scroll effect
+  const carouselItems = [...technologiesData, ...technologiesData]
+
   return (
-    <section id="about" className="py-24 md:py-32">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-24 md:py-32 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              {aboutData?.title ?? "About Me"}
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              {aboutData?.description ?? "I'm a full-stack developer with experience building web applications."}
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-        >
-          {skillsData?.map((skill) => {
-            const IconComponent = iconMap[skill.icon] ?? Code2
-            return (
-              <motion.div
-                key={skill._id}
-                variants={fadeInUp}
-                className="group p-6 rounded-2xl bg-card border hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="mb-4 p-3 rounded-xl bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
-                  <IconComponent className="h-6 w-6 text-primary" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+                {aboutData?.title ?? "About Me"}
+              </h2>
+              <div className="prose prose-lg dark:prose-invert text-muted-foreground">
+                <p>
+                  {aboutData?.description ?? 
+                    "I'm a full-stack developer with experience building web applications. I specialize in modern technologies and best practices to deliver high-quality software."}
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-6 mt-8">
+                {statsData?.map((stat) => (
+                  <div key={stat._id} className="glass-panel p-4 rounded-xl border-l-4 border-l-primary">
+                    <div className="text-2xl md:text-3xl font-bold text-primary mb-1">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm font-medium text-muted-foreground">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-20 animate-pulse" />
+              <div className="glass-panel p-8 rounded-2xl relative">
+                <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
+                  <Zap className="text-primary" />
+                  Technical Expertise
+                </h3>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {skillsData.map((skill) => {
+                    const Icon = iconMap[skill.icon] || Code
+                    return (
+                      <div key={skill._id} className="p-4 rounded-xl bg-secondary/30 border border-secondary/50 hover:border-primary/50 transition-all group">
+                        <div className="flex items-center gap-3 mb-2">
+                          <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:scale-110 transition-transform">
+                            <Icon size={20} />
+                          </div>
+                          <h4 className="font-bold text-sm">{skill.title}</h4>
+                        </div>
+                        <p className="text-xs text-muted-foreground line-clamp-2">{skill.description}</p>
+                      </div>
+                    )
+                  })}
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{skill.title}</h3>
-                <p className="text-sm text-muted-foreground">{skill.description}</p>
-              </motion.div>
-            )
-          })}
-        </motion.div>
-
-        <ScrollReveal delay={0.2}>
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-xl font-semibold text-center mb-6">
-              Technologies I Work With
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {technologiesData?.map((tech, idx) => (
-                <motion.span
-                  key={tech._id}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium cursor-default"
-                >
-                  {tech.name}
-                </motion.span>
-              ))}
+              </div>
             </div>
           </div>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.3}>
-          <div className="max-w-4xl mx-auto mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {statsData?.map((stat, index) => (
-              <motion.div
-                key={stat._id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+        {/* Technologies Carousel */}
+        <ScrollReveal delay={0.2}>
+          <div className="relative mt-20">
+            <div className="text-center mb-10">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary mb-2">Powering Next-Gen Applications With</p>
+              <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+            </div>
+
+            <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">
+              <motion.div 
+                className="flex gap-8 py-4 whitespace-nowrap"
+                animate={{
+                  x: ["0%", "-50%"],
+                }}
+                transition={{
+                  duration: 25,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
               >
-                <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                {carouselItems.map((tech, idx) => (
+                  <div 
+                    key={`${tech._id}-${idx}`}
+                    className="flex items-center gap-3 px-6 py-3 glass-panel rounded-full border border-primary/10 hover:border-primary/50 transition-colors group cursor-default"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <Cpu size={16} />
+                    </div>
+                    <span className="font-display font-medium text-foreground">{tech.name}</span>
+                  </div>
+                ))}
               </motion.div>
-            ))}
+            </div>
           </div>
         </ScrollReveal>
       </div>

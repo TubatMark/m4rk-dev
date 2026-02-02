@@ -21,6 +21,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle"
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ]
@@ -35,7 +36,7 @@ export function Navigation() {
       setIsScrolled(window.scrollY > 50)
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -67,24 +68,22 @@ export function Navigation() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled
-            ? "bg-background/80 backdrop-blur-lg border-b shadow-sm"
-            : "bg-transparent"
+          isScrolled ? "glass-panel py-2" : "bg-transparent py-4"
         )}
       >
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             <motion.a
               href="#home"
-              className="text-xl font-bold tracking-tight"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              className="text-2xl font-bold tracking-tighter"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={(e) => {
                 e.preventDefault()
                 handleNavClick("#home")
               }}
             >
-              <span className="gradient-text">{siteSettings?.logoText ?? "Portfolio"}</span>
+              Mark<span className="text-primary">.</span>
             </motion.a>
 
             <div className="hidden md:flex items-center gap-1">

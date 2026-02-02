@@ -13,7 +13,7 @@ import * as React from "react"
 import { motion } from "framer-motion"
 import { useMutation, useQuery } from "convex/react"
 import { api } from "@/convex/_generated/api"
-import { Mail, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { CheckCircle, AlertCircle } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -28,13 +28,13 @@ export function Contact() {
 
   const contactInfo = [
     {
-      icon: Mail,
+      icon: "email",
       label: "Email",
       value: contactData?.email ?? "hello@example.com",
       href: `mailto:${contactData?.email ?? "hello@example.com"}`,
     },
     {
-      icon: MapPin,
+      icon: "location_on",
       label: "Location",
       value: contactData?.location ?? "San Francisco, CA",
     },
@@ -101,13 +101,13 @@ export function Contact() {
           >
             {contactInfo.map((info) => (
               <motion.div key={info.label} variants={fadeInUp}>
-                <Card className="group hover:shadow-md transition-all duration-300">
+                <Card className="rounded-2xl bg-white dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-colors">
                   <CardContent className="p-6 flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <info.icon className="h-6 w-6 text-primary" />
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                      <span className="material-icons-round">{info.icon}</span>
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-slate-500 dark:text-slate-400">
                         {info.label}
                       </p>
                       {info.href ? (
@@ -127,13 +127,11 @@ export function Contact() {
             ))}
 
             <motion.div variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-primary/10 to-primary/5 border-primary/20">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-2">Quick Response</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {contactData?.responseTimeText ?? "I typically respond within 24 hours. For urgent matters, don't hesitate to reach out directly via email."}
-                  </p>
-                </CardContent>
+              <Card className="p-6 rounded-2xl bg-slate-100 dark:bg-slate-800 border-none">
+                <h3 className="font-semibold mb-2 text-slate-900 dark:text-white">Quick Response</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400">
+                  {contactData?.responseTimeText ?? "I typically respond within 24 hours. For urgent matters, don't hesitate to reach out directly via email."}
+                </p>
               </Card>
             </motion.div>
           </motion.div>
@@ -145,7 +143,7 @@ export function Contact() {
             viewport={{ once: true }}
             className="lg:col-span-3"
           >
-            <Card>
+            <Card className="rounded-2xl bg-white dark:bg-slate-800/50 border-slate-200 dark:border-slate-700">
               <CardContent className="p-6 md:p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -164,6 +162,7 @@ export function Contact() {
                         onChange={handleChange}
                         required
                         disabled={status === "loading"}
+                        className="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:ring-primary"
                       />
                     </div>
                     <div className="space-y-2">
@@ -182,6 +181,7 @@ export function Contact() {
                         onChange={handleChange}
                         required
                         disabled={status === "loading"}
+                        className="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:ring-primary"
                       />
                     </div>
                   </div>
@@ -201,6 +201,7 @@ export function Contact() {
                       onChange={handleChange}
                       required
                       disabled={status === "loading"}
+                      className="bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:ring-primary"
                     />
                   </div>
 
@@ -231,7 +232,7 @@ export function Contact() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="w-full"
+                    className="w-full bg-slate-900 dark:bg-primary hover:bg-slate-800 dark:hover:bg-primary/90"
                     disabled={status === "loading"}
                   >
                     {status === "loading" ? (
@@ -246,7 +247,7 @@ export function Contact() {
                       />
                     ) : (
                       <>
-                        <Send className="h-5 w-5 mr-2" />
+                        <span className="material-icons-round mr-2">send</span>
                         Send Message
                       </>
                     )}

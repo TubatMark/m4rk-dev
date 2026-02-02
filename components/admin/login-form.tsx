@@ -62,6 +62,7 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
               <Input
                 id="email"
                 type="email"
+                autoComplete="email"
                 placeholder="admin@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -74,11 +75,13 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
               <Input
                 id="password"
                 type="password"
+                autoComplete="current-password"
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 disabled={isLoading}
+                className="text-security-disc"
               />
             </div>
 

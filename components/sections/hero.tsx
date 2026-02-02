@@ -193,8 +193,8 @@ export function Hero() {
               className="absolute inset-0 flex items-center justify-center"
             >
               <img 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXCLoGJDBy5asfaxkyG3cKw0ky_8c_ZDa3YX5N51FF2ZV-y1iawayBUcb_UzNrGpZE8AJ88vCx0BvwjY9f300F91vkGtR2ZCp7q0T86VMnBeVLOc2dUKazpOTICgiSZ4lHt8TzMdGS8s8XiRu9C30QTXWgNSonHnpoBsKV-Cgc8BXZjm7q0q2oXGyY0xyGWCayBl2e6jcrv20or6Gt9SgVRjRXCvZRSYfYSMwxGEiXC5rWuCs7WCT8SF0T0G5OhDgpX6NkDYlc3ebt"
-                alt="3D Abstract Shape"
+                src="/profile.png"
+                alt="Mark Anthony Tubat"
                 className="w-full h-full object-contain drop-shadow-2xl"
               />
             </motion.div>

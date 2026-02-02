@@ -10,7 +10,6 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -42,25 +41,27 @@ export function ThemeToggle() {
     >
       <AnimatePresence mode="wait" initial={false}>
         {isDark ? (
-          <motion.div
-            key="moon"
+          <motion.span
+            key="dark-mode"
             initial={{ rotate: -90, scale: 0 }}
             animate={{ rotate: 0, scale: 1 }}
             exit={{ rotate: 90, scale: 0 }}
             transition={{ duration: 0.2 }}
+            className="material-icons-round"
           >
-            <Moon className="h-5 w-5" />
-          </motion.div>
+            dark_mode
+          </motion.span>
         ) : (
-          <motion.div
-            key="sun"
+          <motion.span
+            key="light-mode"
             initial={{ rotate: 90, scale: 0 }}
             animate={{ rotate: 0, scale: 1 }}
             exit={{ rotate: -90, scale: 0 }}
             transition={{ duration: 0.2 }}
+            className="material-icons-round"
           >
-            <Sun className="h-5 w-5" />
-          </motion.div>
+            light_mode
+          </motion.span>
         )}
       </AnimatePresence>
       <span className="sr-only">Toggle theme</span>
