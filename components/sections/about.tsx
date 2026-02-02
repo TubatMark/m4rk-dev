@@ -40,9 +40,10 @@ export function About() {
   const statsData = useQuery(api.stats.getAll)
   const technologiesData = useQuery(api.technologies.getAll)
   const skillsData = useQuery(api.skills.getAll)
+  const projectsData = useQuery(api.projects.getAll)
   
   // Loading state prevents layout shifts
-  if (aboutData === undefined || technologiesData === undefined || skillsData === undefined) {
+  if (aboutData === undefined || technologiesData === undefined || skillsData === undefined || projectsData === undefined) {
     return (
       <section id="about" className="py-24 md:py-32 relative overflow-hidden">
          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,6 +58,17 @@ export function About() {
 
   // Double the data for infinite scroll effect
   const carouselItems = [...technologiesData, ...technologiesData]
+
+  // Process stats to include real project count
+  const processedStats = statsData?.map(stat => {
+    if (stat.label.toLowerCase().includes("project")) {
+      return {
+        ...stat,
+        value: `${projectsData.length}+`
+      }
+    }
+    return stat
+  })
 
   return (
     <section id="about" className="py-24 md:py-32 relative overflow-hidden">
@@ -78,7 +90,7 @@ export function About() {
               </div>
               
               <div className="grid grid-cols-2 gap-6 mt-8">
-                {statsData?.map((stat) => (
+                {processedStats?.map((stat) => (
                   <div key={stat._id} className="glass-panel p-4 rounded-xl border-l-4 border-l-primary">
                     <div className="text-2xl md:text-3xl font-bold text-primary mb-1">
                       {stat.value}

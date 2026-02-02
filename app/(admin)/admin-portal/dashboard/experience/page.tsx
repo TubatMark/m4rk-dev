@@ -193,9 +193,11 @@ export default function ExperiencePage() {
                           {exp.startDate} - {exp.current ? "Present" : exp.endDate}
                         </span>
                       </div>
-                      <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
-                        {exp.description}
-                      </p>
+                      <ul className="text-sm text-muted-foreground mt-2 list-disc list-inside space-y-0.5 line-clamp-3">
+                        {exp.description.split('\n').filter(line => line.trim() !== '').map((line, i) => (
+                          <li key={i}>{line.replace(/^[•\-\*]\s*/, '')}</li>
+                        ))}
+                      </ul>
                     </div>
 
                     <div className="flex items-center gap-1 shrink-0">
@@ -315,15 +317,18 @@ export default function ExperiencePage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="description">Description</Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="description">Description</Label>
+                <span className="text-[10px] text-muted-foreground">Each new line will become a bullet point</span>
+              </div>
               <Textarea
                 id="description"
                 value={formData.description}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, description: e.target.value }))
                 }
-                placeholder="Describe your role and responsibilities..."
-                rows={4}
+                placeholder="• Led a team of 5 developers&#10;• Developed new features using React&#10;• Optimized performance by 30%"
+                rows={6}
                 required
               />
             </div>

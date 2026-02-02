@@ -77,9 +77,11 @@ export function Experience() {
                       </span>
                     </div>
                     
-                    <div className="text-muted-foreground leading-relaxed">
-                      {exp.description}
-                    </div>
+                    <ul className="text-muted-foreground leading-relaxed list-disc list-inside space-y-1">
+                      {exp.description.split('\n').filter(line => line.trim() !== '').map((line, i) => (
+                        <li key={i}>{line.replace(/^[•\-\*]\s*/, '')}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
