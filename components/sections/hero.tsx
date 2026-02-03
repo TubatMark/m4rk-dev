@@ -50,33 +50,9 @@ export function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-10"
     >
-      {/* Background Blobs */}
+      {/* Background decoration */}
       <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20" />
-        <motion.div
-          className="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute top-[20%] -right-[10%] w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[120px]"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.5, 0.3, 0.5],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <div className="absolute inset-0" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,7 +85,7 @@ export function Hero() {
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
             >
               <span className="block text-foreground">Hi, I&apos;m Mark Anthony Tubat</span>
-              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500 bg-300% animate-gradient">
+              <span className="block mt-2 text-primary">
                 Crafting the Future
               </span>
             </motion.h1>
@@ -212,7 +188,7 @@ export function Hero() {
               }}
               className="absolute top-20 right-20 glass-panel p-4 rounded-2xl shadow-xl backdrop-blur-md"
             >
-              <Code className="w-8 h-8 text-indigo-500" />
+              <Code className="w-8 h-8 text-primary" />
             </motion.div>
 
             <motion.div
@@ -227,7 +203,7 @@ export function Hero() {
               }}
               className="absolute bottom-40 left-10 glass-panel p-4 rounded-2xl shadow-xl backdrop-blur-md"
             >
-              <Database className="w-8 h-8 text-purple-500" />
+              <Database className="w-8 h-8 text-primary" />
             </motion.div>
           </motion.div>
 

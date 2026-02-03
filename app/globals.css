@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  /* Indigo 500 #6366f1 - 239 84% 67% */
-  --primary: 239 84% 67%;
+  /* Primary - Navy Blue #1e3a8a */
+  --primary: 221 83% 27%;
   --primary-foreground: 0 0% 100%;
 
   /* Background Light #ffffff */
@@ -32,17 +32,17 @@
 
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
-  --ring: 239 84% 67%;
+  --ring: 221 83% 27%;
 
-  /* Indigo 600 #4f46e5 - 243 75% 59% */
-  --primary-dark: 243 75% 59%;
+  /* Primary Dark - Navy Blue #1e3a8a */
+  --primary-dark: 221 83% 27%;
 
   --radius: 0.5rem;
 }
 
 .dark {
-  /* Indigo 500 #6366f1 - 239 84% 67% */
-  --primary: 239 84% 67%;
+  /* Primary - Navy Blue #1e3a8a */
+  --primary: 221 83% 27%;
   --primary-foreground: 0 0% 100%;
 
   /* Background Dark #0f172a - 222 47% 11% */
@@ -72,10 +72,10 @@
 
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
-  --ring: 239 84% 67%;
+  --ring: 221 83% 27%;
 
-  /* Indigo 600 #4f46e5 - 243 75% 59% */
-  --primary-dark: 243 75% 59%;
+  /* Primary Dark - Navy Blue #1e3a8a */
+  --primary-dark: 221 83% 27%;
 }
 
 @theme inline {
@@ -117,6 +117,17 @@ body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: var(--font-sans), system-ui, sans-serif;
+  /* Subtle square grid overlay */
+  background-image: 
+    linear-gradient(to right, hsl(var(--border) / 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.6) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.dark body {
+  background-image: 
+    linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
 }
 
 html {
@@ -143,6 +154,26 @@ html {
 
 .text-glow {
   text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* Square tiles grid overlay pattern */
+.square-grid-pattern {
+  background-image: 
+    linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .square-grid-pattern {
+  background-image: 
+    linear-gradient(to right, hsl(var(--border) / 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--border) / 0.15) 1px, transparent 1px);
+}
+
+/* Subtle dot pattern alternative */
+.dot-pattern {
+  background-image: radial-gradient(hsl(var(--muted-foreground) / 0.2) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Scrollbar */

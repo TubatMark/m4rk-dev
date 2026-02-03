@@ -73,7 +73,7 @@ export function About() {
   return (
     <section id="about" className="py-24 md:py-32 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-border" />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal>
@@ -102,7 +102,6 @@ export function About() {
             </div>
             
             <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full opacity-20 animate-pulse" />
               <div className="glass-panel p-8 rounded-2xl relative">
                 <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
                   <Zap className="text-primary" />

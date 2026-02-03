@@ -29,15 +29,15 @@ interface ProjectCardProps {
   index: number
 }
 
-// Deterministic gradient generator based on string input
-const getGradient = (str: string) => {
-  const gradients = [
-    "from-pink-500 via-red-500 to-yellow-500",
-    "from-blue-400 via-indigo-500 to-purple-500",
-    "from-green-400 via-emerald-500 to-teal-500",
-    "from-orange-400 via-amber-500 to-yellow-500",
-    "from-indigo-400 via-purple-500 to-pink-500",
-    "from-teal-400 via-cyan-500 to-blue-500",
+// Deterministic color generator based on string input
+const getColor = (str: string) => {
+  const colors = [
+    "bg-slate-500",
+    "bg-blue-500",
+    "bg-green-500", 
+    "bg-amber-500",
+    "bg-indigo-500",
+    "bg-teal-500",
   ]
   
   let hash = 0
@@ -45,14 +45,14 @@ const getGradient = (str: string) => {
     hash = str.charCodeAt(i) + ((hash << 5) - hash)
   }
   
-  const index = Math.abs(hash) % gradients.length
-  return gradients[index]
+  const index = Math.abs(hash) % colors.length
+  return colors[index]
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
   const hasImage = !!(project.imageUrl || project.image)
   const displayImage = project.imageUrl || project.image
-  const gradientClass = React.useMemo(() => getGradient(project._id || project.title), [project._id, project.title])
+  const colorClass = React.useMemo(() => getColor(project._id || project.title), [project._id, project.title])
 
   return (
     <motion.div
@@ -76,7 +76,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               />
             </div>
           ) : (
-            <div className={cn("w-full h-full flex items-center justify-center bg-gradient-to-br", gradientClass)}>
+            <div className={cn("w-full h-full flex items-center justify-center", colorClass)}>
               <Code2 className="w-16 h-16 text-white/50" />
             </div>
           )}
